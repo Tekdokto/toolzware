@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { AppBar, Toolbar, IconButton, makeStyles, Tooltip, Switch } from '@material-ui/core';
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import { AppBar, Toolbar, IconButton, makeStyles, Tooltip, Switch, Button } from '@material-ui/core';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.primary,
+    position: 'sticky',
+    top: 0,
   },
   toolbar: {
     display: 'flex',
@@ -24,6 +28,14 @@ const useStyles = makeStyles((theme) => ({
   socialIcon: {
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
+  },
+  button: {
+    marginLeft: theme.spacing(2),
+    color: theme.palette.type === 'dark' ? '#fff' : '#000', // set color for light and dark themes
+    backgroundColor: theme.palette.type === 'dark' ? '#40E0D0' : '#f5f5f5', // set background color for light and dark themes
+    '&:hover': {
+      backgroundColor: theme.palette.type === 'dark' ? '#357ae8' : '#dbdbdb', // set hover background color for light and dark themes
+    },
   },
 }));
 
@@ -45,6 +57,15 @@ const Header = ({toggleTheme, themeMode}) => {
           </IconButton>
         </Link>
         <div className={classes.socialLinks}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          startIcon={<CloudDownloadIcon />}
+          // onClick={onDownload}
+        >
+          Download
+        </Button>
           <Tooltip title="Instagram">
             <IconButton
               aria-label="Instagram"
@@ -79,6 +100,18 @@ const Header = ({toggleTheme, themeMode}) => {
               rel="noopener"
             >
               <FacebookIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="LinkedIn">
+            <IconButton
+              aria-label="LinkedIn"
+              className={classes.socialIcon}
+              component="a"
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <LinkedInIcon />
             </IconButton>
           </Tooltip>
           {/* <Tooltip title={`Switch to ${darkMode ? 'light' : 'dark'} mode`}>
