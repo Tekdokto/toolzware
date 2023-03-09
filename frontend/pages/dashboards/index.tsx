@@ -10,7 +10,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import Image from 'next/image';
-import Header from './home/header'
+import Link from 'next/link';
 
 // import googlePlayLightImg from '../public/images/google-play-light.png';
 // import appStoreLightImg from '../public/images/app-store-light.png';
@@ -48,9 +48,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: theme.spacing(2),
     color: theme.palette.type === 'dark' ? '#fff' : '#000', // set color for light and dark themes
-    backgroundColor: theme.palette.type === 'dark' ? '#4285F4' : '#f5f5f5', // set background color for light and dark themes
+    backgroundColor: theme.palette.type === 'dark' ? '#00BFFF' : '#f5f5f5', // set background color for light and dark themes
     '&:hover': {
-      backgroundColor: theme.palette.type === 'dark' ? '#357ae8' : '#dbdbdb', // set hover background color for light and dark themes
+      backgroundColor: theme.palette.type === 'dark' ? '#00BFFF' : '#dbdbdb', // set hover background color for light and dark themes
     },
   },
   icon: {
@@ -62,8 +62,9 @@ const useStyles = makeStyles((theme) => ({
     width: 120,
   },
 }));
+import Layout from '../../components/Layout';
 
-export default function LandingPage({toggleTheme, themeMode}) {
+function HomePage({ toggleTheme, themeMode }) {
   const classes = useStyles();
   const theme = useTheme();
   const isDarkMode = useMediaQuery(theme.breakpoints.down('md'));
@@ -71,11 +72,9 @@ export default function LandingPage({toggleTheme, themeMode}) {
   // const googlePlayImg = isDarkMode ? googlePlayDarkImg : googlePlayLightImg;
   // const appStoreImg = isDarkMode ? appStoreDarkImg : appStoreLightImg;
   // const windowsImg = isDarkMode ? windowsDarkImg : windowsLightImg;
-
-  return (
-    <>
-    
-    <Header toggleTheme={toggleTheme} themeMode={themeMode} />
+    return (
+      <div>
+      <Layout toggleTheme={toggleTheme} themeMode={themeMode}>
       <Box className={classes.root}>
         <Container maxWidth="md">
           <Typography variant="h3" align="center" gutterBottom>
@@ -176,7 +175,9 @@ export default function LandingPage({toggleTheme, themeMode}) {
               color="primary"
               className={classes.button}
             >
-              Sign Up
+               <Link href="/signup" passHref>
+          Sign Up
+        </Link>
             </Button>
             <Button variant="outlined" color="primary">
               Log In
@@ -184,6 +185,8 @@ export default function LandingPage({toggleTheme, themeMode}) {
           </Box>
         </Container>
       </Box>
-    </>
-  )
-}
+        </Layout>
+      </div>
+    );
+  }
+export default HomePage;  

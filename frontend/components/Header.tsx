@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
     position: 'sticky',
     top: 0,
+    boxShadow: '0px 0px 0px -1px rgb(0 0 0 / 20%), 0px 0px 0px 0px rgb(0 0 0 / 14%), 0px 1px 0px 0px rgb(0 0 0 / 12%) !important'
   },
   toolbar: {
     display: 'flex',
@@ -32,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginLeft: theme.spacing(2),
     color: theme.palette.type === 'dark' ? '#fff' : '#000', // set color for light and dark themes
-    backgroundColor: theme.palette.type === 'dark' ? '#40E0D0' : '#f5f5f5', // set background color for light and dark themes
+    backgroundColor: theme.palette.type === 'dark' ? '#00BFFF' : '#f5f5f5', // set background color for light and dark themes
     '&:hover': {
-      backgroundColor: theme.palette.type === 'dark' ? '#357ae8' : '#dbdbdb', // set hover background color for light and dark themes
+      backgroundColor: theme.palette.type === 'dark' ? '#00BFFF' : '#dbdbdb', // set hover background color for light and dark themes
     },
   },
 }));
@@ -53,7 +54,7 @@ const Header = ({toggleTheme, themeMode}) => {
       <Toolbar className={classes.toolbar}>
         <Link href="/" passHref>
           <IconButton edge="start" color="inherit" aria-label="Home">
-            <img src="/logo.svg" alt="Logo" width="32" height="32" />
+            <img src='https://res.cloudinary.com/skiltime/image/upload/v1678321284/image_1_f3pvvl.png' alt="Logo" width="97" height="20" />
           </IconButton>
         </Link>
         <div className={classes.socialLinks}>
