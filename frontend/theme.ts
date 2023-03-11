@@ -7,14 +7,12 @@ export const lightTheme = createMuiTheme({
     primary: {
       main: '#0070f3',
     },
-    // secondary: {
-    //   main: '#19857b',
-    // },
     background: {
-      default: '#fff',
+      default: '#fcf5ebcc',
     },
     secondary: {
-      main: '#00BFFF',
+      main: '#1874f4',
+      paper: '#293145'
     },
   },
 });
@@ -26,15 +24,12 @@ export const darkTheme = createMuiTheme({
     primary: {
       main: '#90caf9',
     },
-    // secondary: {
-    //   main: '#a5d6a7',
-    // },
     background: {
-      default: '#121212',
-      paper: '#1f1f1f',
+      default: '#1a2236',
+      paper: '#293145',
     },
     secondary: {
-      main: '#ff5722',
+      main: '#293145',
     },
   },
 });

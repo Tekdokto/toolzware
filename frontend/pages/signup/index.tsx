@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    
+    position: 'relative',
+  zIndex: 1,
   },
   input: {
     margin: theme.spacing(1),

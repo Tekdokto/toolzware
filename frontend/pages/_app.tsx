@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import "../public/styles.css"
 import { lightTheme, darkTheme } from '../theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
