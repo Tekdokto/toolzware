@@ -9,7 +9,9 @@ const nextConfig = {
     // (recommended to improve app reliability)
     ignoreBuildErrors: false,
   },
-
+  images: {
+    domains: ['user-images.githubusercontent.com', 'res.cloudinary.com']
+  },
   // Enable CSS modules
   // (see https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css)
   cssModules: true,

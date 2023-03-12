@@ -11,8 +11,10 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import WebIcon from '@material-ui/icons/Web';
 import AvatarLogo from './AvatarLogo';
 import DownloadButton from './DownloadButton';
+import classNames from 'classnames';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: { 
+  palette: { type: string; secondary: { main: any; }; text: { primary: any; }; }; spacing: (arg0: number) => any; }) => ({
   appBar: {
     backgroundColor: theme.palette.type === 'dark' ? theme.palette.secondary.main : '#fcf5ebcc', 
     color: theme.palette.text.primary,
@@ -56,25 +58,26 @@ const Header = ({toggleTheme, themeMode}) => {
   };
 
   const goToDownloadPage = () => {
+    console.log(router);
     router.push('/download')
   }
   return (
-    <AppBar position="static" className={classes.appBar}>
-      <Toolbar className={classes.toolbar}>
+    <AppBar position="static" className={classNames(classes.appBar)}>
+      <Toolbar className={classNames(classes.toolbar)}>
         <Link href="/" passHref>
-          <IconButton className={classes.logoButton} edge="start" color="inherit" aria-label="Home">
+          <IconButton className={classNames(classes.logoButton)} edge="start" color="inherit" aria-label="Home">
             <AvatarLogo imageUrl="https://res.cloudinary.com/skiltime/image/upload/v1609139208/SKILTIME6_rnh6qs.png" altText="Profile Image" />
             <img src='https://res.cloudinary.com/skiltime/image/upload/v1678319602/SKILTIME1_a5mcat_1_lt38x8.png' alt="Logo" width="97" height="20" />
           </IconButton>
         </Link>
-        <div className={classes.socialLinks}>
+        <div className={classNames(classes.socialLinks)}>
         <div>
-          <DownloadButton label="Download" onClick={goToDownloadPage} />
+          <DownloadButton label="Download" onClick={() => goToDownloadPage()} />
         </div>
           <Tooltip title="Instagram Login">
             <IconButton
               aria-label="Instagram"
-              className={classes.socialIcon}
+              className={classNames(classes.socialIcon)}
               component="a"
               href="https://www.instagram.com/"
               target="_blank"
@@ -86,7 +89,7 @@ const Header = ({toggleTheme, themeMode}) => {
           <Tooltip title="Twitter Login">
             <IconButton
               aria-label="Twitter"
-              className={classes.socialIcon}
+              className={classNames(classes.socialIcon)}
               component="a"
               href="https://twitter.com/"
               target="_blank"
@@ -98,7 +101,7 @@ const Header = ({toggleTheme, themeMode}) => {
           <Tooltip title="Facebook Login">
             <IconButton
               aria-label="Facebook"
-              className={classes.socialIcon}
+              className={classNames(classes.socialIcon)}
               component="a"
               href="https://www.facebook.com/"
               target="_blank"
@@ -110,7 +113,7 @@ const Header = ({toggleTheme, themeMode}) => {
           <Tooltip title="LinkedIn Login">
             <IconButton
               aria-label="LinkedIn"
-              className={classes.socialIcon}
+              className={classNames(classes.socialIcon)}
               component="a"
               href="https://www.linkedin.com/"
               target="_blank"
@@ -121,8 +124,9 @@ const Header = ({toggleTheme, themeMode}) => {
           </Tooltip>
           <Tooltip title="Web Login">
             <IconButton
+              // onClick={''}
               aria-label="Web"
-              className={classes.socialIcon}
+              className={classNames(classes.socialIcon)}
               component="a"
               href="/signup"
               rel="noopener"

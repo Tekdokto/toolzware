@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import useTheme from '@material-ui/core/styles/useTheme';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { FiDownload } from 'react-icons/fi';
+import classNames from 'classnames';
 
 const useStyles = makeStyles((theme: Theme) => ({
     button: {
@@ -41,12 +42,13 @@ const theme = useTheme();
 return (
     <ThemeProvider theme={theme}>
     <Button
-        variant="contained"
-        color="primary"
-        className={classes.button}
-        startIcon={<FiDownload className={classes.icon} />}
+      onClick={onClick}
+      variant="contained"
+      color="primary"
+      className={classNames(classes.button)}
+      startIcon={<FiDownload className={classNames(classes.icon)} />}
     >
-        {label}
+      {label}
     </Button>
     </ThemeProvider>
 );

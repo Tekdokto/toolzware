@@ -1,5 +1,6 @@
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Button, Grid, Typography } from '@material-ui/core';
+import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,12 +41,12 @@ const WalletSection = () => {
   const theme = useTheme();
 
   return (
-    <div className={classes.root}>
+    <div className={classNames(classes.root)}>
       <Grid container spacing={4} alignItems="center">
         <Grid item xs={12} md={6}>
-            <img src="https://res.cloudinary.com/skiltime/image/upload/v1678538795/sim-debit-card_u3pfmz.png" alt="Person holding phone" className={classes.image} />
+            <img src="https://res.cloudinary.com/skiltime/image/upload/v1678538795/sim-debit-card_u3pfmz.png" alt="Person holding phone" className={classNames(classes.image)} />
         </Grid>
-        <Grid item xs={12} md={6} className={classes.content}>
+        <Grid item xs={12} md={6} className={classNames(classes.content)}>
           <Typography variant="h2" gutterBottom>
             Borderless Wallet, Even For Payroll
           </Typography>
@@ -54,7 +55,7 @@ const WalletSection = () => {
             crypto to pay or receive money instantly acros the world. 
             Your virtual sim card is also your credit card, and your sim number + your pin is your creditcard number
           </Typography>
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button variant="contained" color="primary" className={classNames(classes.button)}>
             Pay Now
           </Button>
         </Grid>

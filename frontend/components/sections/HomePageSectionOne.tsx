@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import { FiDownload } from 'react-icons/fi';
 import DownloadButton from '../DownloadButton';
 import { useRouter } from 'next/router';
-import { Typography } from '@material-ui/core';
+import classNames from 'classnames';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -88,34 +86,34 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const HomePageSectionOne = () => {
+const HomePageSectionOne = ({themeMode}) => {
   const classes = useStyles();
   const [isDark, setIsDark] = useState(false);
   const router = useRouter();
 
   const goToDownloadPage = () => {
+    console.log(router);
     router.push('/download')
   }
-  const handleThemeChange = () => {
-    setIsDark(!isDark);
-  };
 
   return (
-    <div className={classes.root}>
+    <div className={classNames(classes.root)}>
       <Image
-        src="/images/background.jpg"
+        src={themeMode === 'light' ? 
+          'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png' : 
+          'https://res.cloudinary.com/skiltime/image/upload/v1678535188/peakpx_1_c62kvg.jpg'}
         alt="background"
         layout="fill"
         objectFit="cover"
         quality={100}
-        className={classes.image}
+        className={classNames(classes.image)}
       />
-      <div className={classes.content}>
-        <h1 className={classes.title}>Your No.1 Job Networking Platform</h1>
-        <h2 className={classes.subtitle}>
+      <div className={classNames(classes.content)}>
+        <h1 className={classNames(classes.title)}>Your No.1 Job Networking Platform</h1>
+        <h2 className={classNames(classes.subtitle)}>
           Share your skills with the world and connect with others.
         </h2>
-        <h4 className={classes.typography}>
+        <h4 className={classNames(classes.typography)}>
             Skiltime network you with top employers and talents for real job opportunities, 
             provides a real borderless personal transaction wallets, phone number to private messages and calls, webinars, 
             meetings, and tutorials. All for free across the world.

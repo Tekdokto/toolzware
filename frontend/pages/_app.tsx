@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/styles';
+import { CssBaseline } from '@material-ui/core';
 import "../public/styles.css"
 import { lightTheme, darkTheme } from '../theme';
 

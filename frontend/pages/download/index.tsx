@@ -11,11 +11,12 @@ import { FaGooglePlay, FaAppStoreIos, FaWindows } from 'react-icons/fa';
 import Brightness7 from '@material-ui/icons/Brightness7';
 import Brightness4 from '@material-ui/icons/Brightness4';
 import Layout from '../../components/Layout';
+import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,
-    height: '100%',
+    height: '100vh',
   },
   card: {
     display: 'flex',
@@ -49,12 +50,12 @@ const Download = ({ toggleTheme, themeMode }) => {
     windows: '#0078D7',
   };
   return (
-    <div className={classes.root}>
+    <div className={classNames(classes.root)}>
       <Grid container justifyContent="center">
         <Grid item xs={12} sm={6} md={4}>
-          <Card className={classes.card}>
+          <Card className={classNames(classes.card)}>
             <CardContent>
-              <FaGooglePlay className={classes.icon} 
+              <FaGooglePlay className={classNames(classes.icon)} 
                 color={themeMode === 'light' ? brandColors.googlePlay : brandColors.googlePlay} 
                 />
               <Typography variant="h5">Download for Android</Typography>
@@ -63,7 +64,7 @@ const Download = ({ toggleTheme, themeMode }) => {
               </Typography>
               <Button
                 variant="contained"
-                className={classes.button}
+                className={classNames(classes.button)}
                 onClick={() => console.log('Android download clicked!')}
               >
                 Download
@@ -72,9 +73,9 @@ const Download = ({ toggleTheme, themeMode }) => {
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Card className={classes.card}>
+          <Card className={classNames(classes.card)}>
             <CardContent>
-              <FaAppStoreIos className={classes.icon} 
+              <FaAppStoreIos className={classNames(classes.icon)} 
                 color={themeMode === 'light' ? brandColors.appStore : brandColors.appStore} 
               />
               <Typography variant="h5">Download for iOS</Typography>
@@ -83,7 +84,7 @@ const Download = ({ toggleTheme, themeMode }) => {
               </Typography>
               <Button
                 variant="contained"
-                className={classes.button}
+                className={classNames(classes.button)}
                 onClick={() => console.log('iOS download clicked!')}
               >
                 Download
@@ -92,9 +93,9 @@ const Download = ({ toggleTheme, themeMode }) => {
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Card className={classes.card}>
+          <Card className={classNames(classes.card)}>
             <CardContent>
-              <FaWindows className={classes.icon} 
+              <FaWindows className={classNames(classes.icon)} 
                 color={themeMode === 'light' ? brandColors.windows : brandColors.windows} 
               />
               <Typography variant="h5">Download for Windows</Typography>
@@ -103,7 +104,7 @@ const Download = ({ toggleTheme, themeMode }) => {
               </Typography>
               <Button
                 variant="contained"
-                className={classes.button}
+                className={classNames(classes.button)}
                 onClick={() => console.log('Windows download clicked!')}
               >
                 Download

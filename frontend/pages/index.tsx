@@ -11,6 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import Image from 'next/image';
 import Link from 'next/link';
+import classNames from 'classnames';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(10),
@@ -22,6 +24,25 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
     padding: '10px 30px',
 
+  },
+  section_one: {
+    position: 'relative',
+  //   height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    backgroundImage: theme.palette.type === 'light' ? `url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")` : `url("https://res.cloudinary.com/skiltime/image/upload/v1678535188/peakpx_1_c62kvg.jpg")`,
+    backgroundColor: '#f7f7f7',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
+    marginBottom: theme.spacing(10),
+    paddingTop: theme.spacing(10),
+    paddingBottom: theme.spacing(10),
+    borderTopRightRadius: '9999px',
+    borderBottomRightRadius: '9999px',
   },
   section: {
     marginBottom: theme.spacing(10),
@@ -73,17 +94,17 @@ function IndexPage({ toggleTheme, themeMode }) {
   const theme = useTheme();
     return (
       <Layout toggleTheme={toggleTheme} themeMode={themeMode}>
-        <Box className={classes.section_two} bgcolor={themeMode === 'light' ? "background.paper" : "secondary.main"}>
-          <HomePageSectionOne />
+        <Box className={classNames(classes.section_one)} bgcolor={themeMode === 'light' ? "background.paper" : "secondary.main"}>
+          <HomePageSectionOne themeMode={themeMode} />
         </Box>
 
-        <Box className={classes.section} bgcolor="secondary.main" color="white">
+        <Box className={classNames(classes.section)} bgcolor="secondary.main" color="white">
           <EmployersSection />
         </Box>
-        <Box className={classes.section_two} bgcolor={themeMode === 'light' ? "secondary.paper" : "secondary.main"} color="white">
+        <Box className={classNames(classes.section_two)} bgcolor={themeMode === 'light' ? "#293145" : "secondary.main"} color="white">
           <TalentsSection />
         </Box>
-        <Box className={classes.section} bgcolor="secondary.main" color="white">
+        <Box className={classNames(classes.section)} bgcolor="primary.main" color="white">
           <WalletSection />
         </Box>
         </Layout>

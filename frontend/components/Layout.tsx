@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Header from './Header'
 import { makeStyles } from '@material-ui/core/styles';
+import Footer from './Footer';
+import classNames from 'classnames';
 
 // type Props = {
 //   children?: ReactNode
@@ -28,13 +30,10 @@ function Layout({ toggleTheme, themeMode, children }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header toggleTheme={toggleTheme} themeMode={themeMode}/>
-      <div className={classes.root}>
+      <div className={classNames(classes.root)}>
         {children}
       </div>
-      <footer>
-        <hr />
-        <span>All rights reserved, Skiltime. C 2023</span>
-      </footer>
+      <Footer />
     </div>
   )
 }

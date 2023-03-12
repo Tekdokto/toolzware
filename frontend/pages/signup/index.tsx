@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import Layout from "../../components/Layout";
+import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -59,11 +60,11 @@ export default function Login({toggleTheme, themeMode}) {
   return (
     <>
     <Layout toggleTheme={toggleTheme} themeMode={themeMode}>
-      <form className={classes.form} onSubmit={handleSubmit}>
+      <form className={classNames(classes.form)} onSubmit={handleSubmit}>
         <TextField
           label="Email"
           variant="outlined"
-          className={classes.input}
+          className={classNames(classes.input)}
           value={email}
           onChange={handleChange}
         />
@@ -71,7 +72,7 @@ export default function Login({toggleTheme, themeMode}) {
           type="submit"
           variant="contained"
           color="primary"
-          className={classes.button}
+          className={classNames(classes.button)}
         >
           Submit
         </Button>
