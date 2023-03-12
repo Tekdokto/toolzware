@@ -54,10 +54,10 @@ const Footer = () => {
   return (
     <footer className={classNames(classes.root)}>
       <Typography variant="body2" align="center">
-        © 2023 Skilltime
+        © 2023 Skiltime
       </Typography>
       <Typography variant="body2" align="center">
-        From{' '}
+        From{''}
         <Link
           href="https://lorgarithm.com"
           target="_blank"
