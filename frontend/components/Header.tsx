@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme: {
     color: theme.palette.text.primary,
     position: 'sticky',
     top: 0,
+    background: '',
     boxShadow: '0px 0px 0px -1px rgb(0 0 0 / 20%), 0px 0px 0px 0px rgb(0 0 0 / 14%), 0px 1px 0px 0px rgb(0 0 0 / 12%) !important'
   },
   toolbar: {
